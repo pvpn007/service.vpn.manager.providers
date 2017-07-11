@@ -1,18 +1,16 @@
 client
-#REMOVE2dev tun
-#REMOVE1dev tap
+dev tun
 proto #PROTO
 remote #SERVER #PORT
-remote-random
-resolv-retry 30
+remote-cert-tls server
+tun-ipv6
 nobind
 persist-key
 persist-tun
-ns-cert-type server
-#REMOVE2comp-lzo
+comp-lzo
 verb 3
-#REMOVE2cipher AES-256-CBC
-route-delay
-reneg-sec 0
+cipher AES-256-CBC
+auth SHA256
 auth-user-pass #PASS
 ca #CERT
+tls-auth #TLSKEY
